@@ -6,35 +6,31 @@ const welcomeText = document.getElementById('welcome-text');
 let currentIndex = 0;
 
 function showSection(index) {
-    // Only hide welcome text if we are moving past the first look or interaction
-    if (index !== 0 || currentIndex !== 0) {
-        welcomeText.style.display = 'none';
-    }
+    // Safety check to ensure index is within range
+    if (index < 0 || index >= sections.length) return;
 
     sections.forEach((sec, i) => {
         sec.classList.toggle('active', i === index);
     });
     
-    // Hide welcome text once they start navigating
-    welcomeText.style.display = 'none';
-    
-    // Update button visibility
+    // Update button visibility (using "disabled" class from your CSS)
     prevBtn.classList.toggle('disabled', index === 0);
     nextBtn.classList.toggle('disabled', index === sections.length - 1);
     
     currentIndex = index;
-    window.scrollTo(0, 0); // Scroll to top when changing sections
+    window.scrollTo(0, 0); 
 }
 
-// Sidebar link clicks
+// Handle Sidebar Clicks
 sidebarLinks.forEach((link, index) => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
+        // We let the hash change naturally, but trigger the UI update
         showSection(index);
+        welcomeText.style.display = 'none';
     });
 });
 
-// Button clicks
+// Handle Button Clicks
 prevBtn.addEventListener('click', () => {
     if (currentIndex > 0) showSection(currentIndex - 1);
 });
@@ -43,5 +39,14 @@ nextBtn.addEventListener('click', () => {
     if (currentIndex < sections.length - 1) showSection(currentIndex + 1);
 });
 
-// Initialize the first section
-showSection(0);
+// INITIALIZE: Check if the URL has a hash (e.g., #safety) on load
+const currentHash = window.location.hash;
+const hashIndex = Array.from(sections).findIndex(s => `#${s.id}` === currentHash);
+
+if (hashIndex !== -1) {
+    showSection(hashIndex);
+    welcomeText.style.display = 'none';
+} else {
+    // Default to first section but keep welcome text visible
+    showSection(0);
+}
