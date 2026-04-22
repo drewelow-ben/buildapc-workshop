@@ -108,3 +108,41 @@ body {
         padding: 2rem;
     }
 }
+
+/* Hide all sections by default */
+section {
+    display: none;
+}
+
+/* Show the section when it's targeted or has an 'active' class */
+section.active {
+    display: block;
+}
+
+/* Pagination Button Styles */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--sidebar-bg);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn.disabled {
+    visibility: hidden;
+}
