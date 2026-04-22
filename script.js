@@ -6,6 +6,11 @@ const welcomeText = document.getElementById('welcome-text');
 let currentIndex = 0;
 
 function showSection(index) {
+    // Only hide welcome text if we are moving past the first look or interaction
+    if (index !== 0 || currentIndex !== 0) {
+        welcomeText.style.display = 'none';
+    }
+
     sections.forEach((sec, i) => {
         sec.classList.toggle('active', i === index);
     });
