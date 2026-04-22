@@ -87,6 +87,10 @@ body {
     color: #555;
 }
 
+.main-content ul {
+    list-style-type: none;
+}
+
 /* Responsive Design for smaller screens */
 @media (max-width: 768px) {
     body {
