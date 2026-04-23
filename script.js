@@ -50,3 +50,67 @@ if (hashIndex !== -1) {
     // Default to first section but keep welcome text visible
     showSection(0);
 }
+
+// Sample data: Replace this with your real images/descriptions!
+const hardwareData = [
+  {
+    img: 'https://via.placeholder.com/150?text=CPU',
+    title: 'CPU',
+    description: 'Central Processing Unit – the "brain" of your computer, responsible for carrying out instructions.'
+  },
+  {
+    img: 'https://via.placeholder.com/150?text=GPU',
+    title: 'Graphics Card',
+    description: 'GPU – handles graphics rendering, crucial for gaming, video editing, and display output.'
+  },
+  {
+    img: 'https://via.placeholder.com/150?text=RAM',
+    title: 'RAM',
+    description: 'Random Access Memory – fast, temporary memory your computer uses to store data for quick access.'
+  },
+  // Add more items...
+];
+
+let currentIndex = 0;
+let flipped = false;
+
+const gallery = document.getElementById('hardware-gallery');
+const leftBtn = document.getElementById('hardware-left');
+const rightBtn = document.getElementById('hardware-right');
+
+function renderFlashcard(index) {
+  const {img, title, description} = hardwareData[index];
+  gallery.innerHTML = `
+    <div class="flashcard${flipped ? ' flipped' : ''}" id="current-flashcard">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <img src="${img}" alt="${title}">
+          <strong>${title}</strong>
+        </div>
+        <div class="flashcard-back">
+          <div>${description}</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('current-flashcard').onclick = function() {
+    flipped = !flipped;
+    renderFlashcard(currentIndex);
+  };
+}
+
+leftBtn.onclick = () => {
+  currentIndex = (currentIndex - 1 + hardwareData.length) % hardwareData.length;
+  flipped = false;
+  renderFlashcard(currentIndex);
+};
+
+rightBtn.onclick = () => {
+  currentIndex = (currentIndex + 1) % hardwareData.length;
+  flipped = false;
+  renderFlashcard(currentIndex);
+};
+
+// Initialize gallery
+renderFlashcard(currentIndex);
