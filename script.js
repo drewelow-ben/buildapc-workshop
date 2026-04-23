@@ -51,7 +51,8 @@ if (hashIndex !== -1) {
     showSection(0);
 }
 
-// Sample data: Replace this with your real images/descriptions!
+// --- FLASHCARD GALLERY LOGIC ---
+// use a different variable name so you don't conflict with section navigation
 const hardwareData = [
   {
     img: 'https://via.placeholder.com/150?text=CPU',
@@ -67,50 +68,55 @@ const hardwareData = [
     img: 'https://via.placeholder.com/150?text=RAM',
     title: 'RAM',
     description: 'Random Access Memory – fast, temporary memory your computer uses to store data for quick access.'
-  },
-  // Add more items...
+  }
 ];
-
-let currentIndex = 0;
+// Use unique names to avoid global var conflicts!
+let galleryIndex = 0;
 let flipped = false;
 
-const gallery = document.getElementById('hardware-gallery');
-const leftBtn = document.getElementById('hardware-left');
-const rightBtn = document.getElementById('hardware-right');
+function setupHardwareGallery() {
+  const gallery = document.getElementById('hardware-gallery');
+  const leftBtn = document.getElementById('hardware-left');
+  const rightBtn = document.getElementById('hardware-right');
+  if (!gallery || !leftBtn || !rightBtn) return; // Defensive check
 
-function renderFlashcard(index) {
-  const {img, title, description} = hardwareData[index];
-  gallery.innerHTML = `
-    <div class="flashcard${flipped ? ' flipped' : ''}" id="current-flashcard">
-      <div class="flashcard-inner">
-        <div class="flashcard-front">
-          <img src="${img}" alt="${title}">
-          <strong>${title}</strong>
-        </div>
-        <div class="flashcard-back">
-          <div>${description}</div>
+  function renderFlashcard(index) {
+    const {img, title, description} = hardwareData[index];
+    gallery.innerHTML = `
+      <div class="flashcard${flipped ? ' flipped' : ''}" id="current-flashcard">
+        <div class="flashcard-inner">
+          <div class="flashcard-front">
+            <img src="${img}" alt="${title}">
+            <strong>${title}</strong>
+          </div>
+          <div class="flashcard-back">
+            <div>${description}</div>
+          </div>
         </div>
       </div>
-    </div>
-  `;
+    `;
+    document.getElementById('current-flashcard').onclick = function() {
+      flipped = !flipped;
+      renderFlashcard(galleryIndex);
+    };
+  }
 
-  document.getElementById('current-flashcard').onclick = function() {
-    flipped = !flipped;
-    renderFlashcard(currentIndex);
+  leftBtn.onclick = () => {
+    galleryIndex = (galleryIndex - 1 + hardwareData.length) % hardwareData.length;
+    flipped = false;
+    renderFlashcard(galleryIndex);
   };
+  rightBtn.onclick = () => {
+    galleryIndex = (galleryIndex + 1) % hardwareData.length;
+    flipped = false;
+    renderFlashcard(galleryIndex);
+  };
+
+  renderFlashcard(galleryIndex);
 }
 
-leftBtn.onclick = () => {
-  currentIndex = (currentIndex - 1 + hardwareData.length) % hardwareData.length;
-  flipped = false;
-  renderFlashcard(currentIndex);
-};
+// If you use defer or script at bottom, this is safe:
+setupHardwareGallery();
 
-rightBtn.onclick = () => {
-  currentIndex = (currentIndex + 1) % hardwareData.length;
-  flipped = false;
-  renderFlashcard(currentIndex);
-};
-
-// Initialize gallery
-renderFlashcard(currentIndex);
+// If you do NOT use defer, wrap this call inside
+// document.addEventListener('DOMContentLoaded', setupHardwareGallery);
