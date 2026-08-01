@@ -197,6 +197,15 @@ section.active {
   transform: rotateY(180deg);
 }
 
+/* Swap z-indexes when the card receives the .flipped class */
+.flashcard.flipped .flashcard-front {
+  z-index: 0;
+}
+
+.flashcard.flipped .flashcard-back {
+  z-index: 1;
+}
+
 .flashcard-front, .flashcard-back {
   position: absolute;
   backface-visibility: hidden;
@@ -212,9 +221,11 @@ section.active {
   padding: 20px;
 }
 
+/* Add z-index: 1 to front so it sits on top by default */
 .flashcard-front {
   flex-direction: column;
   background: #e3eafc;
+  z-index: 1; 
 }
 
 .flashcard-front img {
@@ -225,11 +236,13 @@ section.active {
   background: #ddd;
 }
 
+/* Back face stays underneath until flipped */
 .flashcard-back {
   background: #fffbe0;
   transform: rotateY(180deg);
   text-align: left;
   font-size: 1.08rem;
+  z-index: 0;
 }
 
 /* Optional: Responsive */
