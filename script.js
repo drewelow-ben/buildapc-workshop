@@ -55,17 +55,17 @@ if (hashIndex !== -1) {
 // use a different variable name so you don't conflict with section navigation
 const hardwareData = [
   {
-    img: '*/assets/pexels-zeleboba-4526279.jpg',
+    img: './assets/pexels-zeleboba-4526279.jpg',
     title: 'Hard Drive',
     description: 'A hard drive stores the operating system, programs, apps, and user files and documents.'
   },
   {
-    img: 'pexels-it-services-eu-9278798-7594824.jpg',
+    img: './assets/pexels-it-services-eu-9278798-7594824.jpg',
     title: 'RAM',
     description: 'RAM is a type of memory. Memory stores temporary information while a PC is running (browser tabs, open files, game data, etc.)'
   },
   {
-    img: 'pexels-nicolas-foster-65973708-14887610.jpg',
+    img: './assets/pexels-nicolas-foster-65973708-14887610.jpg',
     title: 'Motherboard',
     description: 'A motherboard is a hub that connects everything together and allows electrical signals to travel among the various components.'
   }
