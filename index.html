@@ -12,7 +12,7 @@
     <nav class="sidebar">
         <h2>Table of Contents</h2>
         <ul>
-            <li><a href="#intro">I. Introduction and Purpose</a></li>
+            <li><a href="#intro" class="active">I. Introduction and Purpose</a></li>
             <li><a href="#hardware">II. Computer Hardware Overview</a></li>
             <li><a href="#resourcing">III. Resourcing Equipment: New vs. Used</a></li>
             <li><a href="#safety">IV. Safety</a></li>
@@ -22,70 +22,75 @@
         </ul>
     </nav>
 
-   <main class="main-content">
-    <div class="content-container">
-        <h1>Build A PC with Free Geek Twin Cities</h1>
-        <p id="welcome-text">Select a module from the left margin to begin.</p>
-        
-        <section id="intro" class="active">
-            <h2>I. Introduction and Purpose</h2>
-            <br>
-            <p>Welcome! This one-day workshop empowers community members to become refurbished PC producers - by learning how computers are built and maintained while prioritizing renewed equipment. In this hands-on experience, you'll learn to identify essential hardware components, assemble a fully functional PC to take with you, and install an operating system. The course will also equip you with critical technical life skills, including electrical safety, navigating component compatibility, and ensuring proper data destruction during electronics recycling.</p>
-            <br>
-            <ul>
-                <li><h3>Environmental Stewardship</h3></li>
-                <img src="./assets/pexels-akilmazumder-1072824.jpg" alt="A hand holding a small plant in its palm." width="300px">
-                <p>We prioritize used, renewed and refurbished hardware over new equipment.</p>
-                <li><h3>Building and Maintaining a PC</h3></li>
-                <img src="./assets/pexels-anete-lusina-31854238.jpg" alt="A man working on a desktop computer case." width="300px">
-                <p>We'll learn all that goes into assembling and configuring a PC from its core hardware components.</p>
-            </ul>
-        </section>
+    <main class="main-content">
+        <div class="content-container">
+            <h1>Build A PC with Free Geek Twin Cities</h1>
+            <p id="welcome-text">Select a module from the left margin to begin.</p>
+            
+            <section id="intro" class="active">
+                <h2>I. Introduction and Purpose</h2>
+                <p class="intro-description">
+                    Welcome! This one-day workshop empowers community members to become refurbished PC producers - by learning how computers are built and maintained while prioritizing renewed equipment. In this hands-on experience, you'll learn to identify essential hardware components, assemble a fully functional PC to take with you, and install an operating system. The course will also equip you with critical technical life skills, including electrical safety, navigating component compatibility, and ensuring proper data destruction during electronics recycling.
+                </p>
 
-        <section id="hardware">
-        <h2>Hardware Components Gallery</h2>
-        <div id="hardware-gallery-container">
-          <button class="gallery-arrow" id="hardware-left" aria-label="Previous">&#8592;</button>
-          <div id="hardware-gallery">
-            <!-- Flashcard will be injected here by JS -->
-          </div>
-          <button class="gallery-arrow" id="hardware-right" aria-label="Next">&#8594;</button>
+                <ul class="feature-list">
+                    <li>
+                        <h3>Environmental Stewardship</h3>
+                        <img src="./assets/pexels-akilmazumder-1072824.jpg" alt="A hand holding a small plant in its palm." class="section-img">
+                        <p>We prioritize used, renewed and refurbished hardware over new equipment.</p>
+                    </li>
+                    <li>
+                        <h3>Building and Maintaining a PC</h3>
+                        <img src="./assets/pexels-anete-lusina-31854238.jpg" alt="A man working on a desktop computer case." class="section-img">
+                        <p>We'll learn all that goes into assembling and configuring a PC from its core hardware components.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="hardware">
+                <h2>II. Computer Hardware Overview</h2>
+                <div id="hardware-gallery-container">
+                    <button class="gallery-arrow" id="hardware-left" aria-label="Previous">&#8592;</button>
+                    <div id="hardware-gallery">
+                        <!-- Flashcard will be injected here by JS -->
+                    </div>
+                    <button class="gallery-arrow" id="hardware-right" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+            <section id="resourcing">
+                <h2>III. Resourcing Equipment: New vs. Used</h2>
+                <p>Exploring the environmental cost of new equipment versus the benefits of parts harvesting.</p>
+            </section>
+
+            <section id="safety">
+                <h2>IV. Safety</h2>
+                <p>Key safety considerations regarding tools, electricity, and component handling.</p>
+            </section>
+
+            <section id="assembly">
+                <h2>V. Assembly</h2>
+                <p>Hands-on assembly of a fully functional PC to take home.</p>
+            </section>
+
+            <section id="os-setup">
+                <h2>VI. OS Install & Setup</h2>
+                <p>Installing an operating system and ensuring successful operation.</p>
+            </section>
+
+            <section id="disposal">
+                <h2>VII. Proper Disposal & Data Destruction</h2>
+                <p>Responsible recycling and the importance of data destruction.</p>
+            </section>
+
+            <div class="nav-buttons">
+                <button id="prevBtn" class="btn">← Previous</button>
+                <button id="nextBtn" class="btn">Next →</button>
+            </div>
         </div>
-        </section>
+    </main>
 
-        <section id="resourcing">
-            <h2>III. Resourcing Equipment: New vs. Used</h2>
-            <p>Exploring the environmental cost of new equipment versus the benefits of parts harvesting.</p>
-        </section>
-
-        <section id="safety">
-            <h2>IV. Safety</h2>
-            <p>Key safety considerations regarding tools, electricity, and component handling.</p>
-        </section>
-
-        <section id="assembly">
-            <h2>V. Assembly</h2>
-            <p>Hands-on assembly of a fully functional PC to take home.</p>
-        </section>
-
-        <section id="os-setup">
-            <h2>VI. OS Install & Setup</h2>
-            <p>Installing an operating system and ensuring successful operation.</p>
-        </section>
-
-        <section id="disposal">
-            <h2>VII. Proper Disposal & Data Destruction</h2>
-            <p>Responsible recycling and the importance of data destruction.</p>
-        </section>
-
-        <div class="nav-buttons">
-            <button id="prevBtn" class="btn">← Previous</button>
-            <button id="nextBtn" class="btn">Next →</button>
-        </div>
-    </div>
-</main>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
