@@ -55,19 +55,19 @@ if (hashIndex !== -1) {
 // use a different variable name so you don't conflict with section navigation
 const hardwareData = [
   {
-    img: 'https://via.placeholder.com/150?text=CPU',
-    title: 'CPU',
-    description: 'Central Processing Unit – the "brain" of your computer, responsible for carrying out instructions.'
+    img: '*/assets/pexels-zeleboba-4526279.jpg',
+    title: 'Hard Drive',
+    description: 'A hard drive stores the operating system, programs, apps, and user files and documents.'
   },
   {
-    img: 'https://via.placeholder.com/150?text=GPU',
-    title: 'Graphics Card',
-    description: 'GPU – handles graphics rendering, crucial for gaming, video editing, and display output.'
-  },
-  {
-    img: 'https://via.placeholder.com/150?text=RAM',
+    img: 'pexels-it-services-eu-9278798-7594824.jpg',
     title: 'RAM',
-    description: 'Random Access Memory – fast, temporary memory your computer uses to store data for quick access.'
+    description: 'RAM is a type of memory. Memory stores temporary information while a PC is running (browser tabs, open files, game data, etc.)'
+  },
+  {
+    img: 'pexels-nicolas-foster-65973708-14887610.jpg',
+    title: 'Motherboard',
+    description: 'A motherboard is a hub that connects everything together and allows electrical signals to travel among the various components.'
   }
 ];
 // Use unique names to avoid global var conflicts!
