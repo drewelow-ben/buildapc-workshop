@@ -270,57 +270,55 @@ section h2 {
 /* Footer Layout Container */
 .sponsor-footer {
   width: 100%;
-  padding: 2.5rem 1rem;
-  background-color: #f8f9fa; /* Match your page theme */
+  margin-top: 4rem;
+  padding: 2.5rem 1rem 1rem;
   border-top: 1px solid #e0e0e0;
 }
 
 .sponsor-container {
-  max-width: 960px; /* Aligns with your main content width */
+  max-width: 850px; /* Matches your .content-container width */
   margin: 0 auto;
   text-align: center;
 }
 
 .sponsor-label {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #666;
+  letter-spacing: 0.08em;
+  color: #777;
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 /* Flexbox Layout for Logos */
 .sponsor-logos {
   display: flex;
-  justify-content: space-around; /* Distributes logos with even space */
-  align-items: center;          /* Centers images vertically along their midpoint */
-  flex-wrap: wrap;             /* Wraps gracefully on mobile screens */
-  gap: 2rem 3rem;              /* Row gap (2rem) and column gap (3rem) */
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-/* Individual Logo Sizing Normalization */
+/* Strict Sizing Normalization for All Logos */
 .sponsor-logo {
-  /* Gives each logo a fixed visual frame */
-  height: 60px;               /* Normalizes height across all logos */
-  max-width: 180px;           /* Prevents extra-wide logos from dominating */
+  max-height: 55px;         /* Caps vertical size tightly */
+  max-width: 160px;          /* Caps horizontal size */
   width: auto;
-  object-fit: contain;        /* Preserves aspect ratio without distortion */
-  
-  /* Optional: Desaturates logos slightly so they don't fight for attention */
-  /* filter: grayscale(30%); */
-  /* transition: filter 0.2s ease; */
+  height: auto;
+  object-fit: contain;       /* Prevents distortion */
+  flex-shrink: 0;            /* Forces flexbox to respect constraints */
+  display: block;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
   .sponsor-logos {
-    justify-content: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
   
   .sponsor-logo {
-    height: 48px;
-    max-width: 140px;
+    max-height: 40px;
+    max-width: 130px;
   }
 }
 
