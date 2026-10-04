@@ -299,26 +299,27 @@ section h2 {
   gap: 2rem;
 }
 
-/* Strict Sizing Normalization for All Logos */
+/* Individual Logo Sizing - Tripled Size */
 .sponsor-logo {
-  max-height: 55px;         /* Caps vertical size tightly */
-  max-width: 160px;          /* Caps horizontal size */
+  max-height: 165px;        /* Tripled from 55px */
+  max-width: 480px;         /* Tripled from 160px */
   width: auto;
   height: auto;
-  object-fit: contain;       /* Prevents distortion */
-  flex-shrink: 0;            /* Forces flexbox to respect constraints */
+  object-fit: contain;      /* Preserves aspect ratio without distortion */
+  flex-shrink: 0;           /* Prevents flexbox from squishing the logos */
   display: block;
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .sponsor-logos {
-    gap: 1.25rem;
+    flex-direction: column; /* Stacks large logos neatly on smaller screens */
+    gap: 2rem;
   }
-  
+
   .sponsor-logo {
-    max-height: 40px;
-    max-width: 130px;
+    max-height: 100px;      /* Slightly scaled down for tablet/mobile */
+    max-width: 80%;
   }
 }
 
