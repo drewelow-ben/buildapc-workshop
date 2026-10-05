@@ -61,8 +61,8 @@ if (hashIndex !== -1) {
 const hardwareData = [
     {
         img: './assets/pexels-zeleboba-4526279.jpg',
-        title: 'Hard Drive',
-        description: 'A hard drive stores the operating system, programs, apps, and user files and documents.'
+        title: 'Storage Drive | Hard Drive or SSD',
+        description: 'The primary storage drive stores the operating system, programs, apps, and user files and documents.'
     },
     {
         img: './assets/pexels-it-services-eu-9278798-7594824.jpg',
