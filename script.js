@@ -75,10 +75,15 @@ const hardwareData = [
         description: 'A motherboard connects all components together and routes electrical signals and communication between them.'
     },
     {
-        img: '/assets/pexels-jonathanborba-37368174.jpg',
+        img: './assets/pexels-jonathanborba-37368174.jpg',
         title: 'CPU | Processor',
         description: 'The CPU is the brain of a computer. It constantly takes in data, carries out instructions and does super-fast calculations to execute all the apps and programs on the computer.'
-    }
+    },
+    {
+        img: './assets/pexels-zeleboba-5327981.jpg',
+        title: 'CPU Cooling',
+        description: 'The CPU generates a lot of heat. Cooling is needed to protect from overheating.',
+    },
 ]; // <--- Correctly closed with a bracket
             
 let galleryIndex = 0;
