@@ -66,16 +66,22 @@ const hardwareData = [
     },
     {
         img: './assets/pexels-it-services-eu-9278798-7594824.jpg',
-        title: 'RAM',
+        title: 'RAM | Memory',
         description: 'RAM is temporary memory. It stores short-term data while a PC is actively running programs or browser tabs.'
     },
     {
         img: './assets/pexels-nicolas-foster-65973708-14887610.jpg',
         title: 'Motherboard',
         description: 'A motherboard connects all components together and routes electrical signals and communication between them.'
-    }
-];
-
+    },
+    {
+        img: '/assets/pexels-jonathanborba-37368174.jpg',
+        title: 'CPU | Processor',
+        description: 'The CPU is the brain of a computer. It constantly takes in data, carries out instructions and does super-fast calculations to execute all the apps and programs on the computer.',
+    },
+    
+            
+            
 let galleryIndex = 0;
 let flipped = false;
 
