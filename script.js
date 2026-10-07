@@ -77,11 +77,9 @@ const hardwareData = [
     {
         img: '/assets/pexels-jonathanborba-37368174.jpg',
         title: 'CPU | Processor',
-        description: 'The CPU is the brain of a computer. It constantly takes in data, carries out instructions and does super-fast calculations to execute all the apps and programs on the computer.',
+        description: 'The CPU is the brain of a computer. It constantly takes in data, carries out instructions and does super-fast calculations to execute all the apps and programs on the computer.'
     }
-    }
-    
-            
+]; // <--- Correctly closed with a bracket
             
 let galleryIndex = 0;
 let flipped = false;
