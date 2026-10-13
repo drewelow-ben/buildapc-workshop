@@ -162,7 +162,7 @@ function setupPeripherals() {
         },
         {
             name: "Mouse",
-            image: "./assets/mouse.jpg",
+            image: "./assets/pexels-bertellifotografia-20510003.jpg",
             description: "Lets you move the pointer and click on items on screen."
         },
         {
