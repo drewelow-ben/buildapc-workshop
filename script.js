@@ -157,7 +157,7 @@ function setupPeripherals() {
     const peripherals = [
         {
             name: "Keyboard",
-            image: "./assets/keyboard.jpg",
+            image: "./assets/pexels-borishamer-19970375.jpg",
             description: "Allows you to type commands and text into the computer."
         },
         {
