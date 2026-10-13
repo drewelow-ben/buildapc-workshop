@@ -167,7 +167,7 @@ function setupPeripherals() {
         },
         {
             name: "Monitor",
-            image: "./assets/monitor.jpg",
+            image: "./assets/pexels-ron-lach-7858742.jpg",
             description: "Displays the computer output visually for the user."
         },
         {
