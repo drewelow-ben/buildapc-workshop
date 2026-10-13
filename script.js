@@ -172,7 +172,7 @@ function setupPeripherals() {
         },
         {
             name: "Speakers / Headphones",
-            image: "./assets/pexels-amar-11063287.jpg",
+            image: "./assets/pexels-ron-lach-7858760.jpg",
             description: "Produces sound for video, music, games, and system alerts."
         }
     ];
