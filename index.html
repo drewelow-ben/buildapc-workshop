@@ -24,7 +24,7 @@
 
     <main class="main-content">
         <div class="content-container">
-            <h1>Green Bytes: Build Your Own Computer</h1></h1>
+            <h1>Green Bytes: Build Your Own Computer</h1>
             <br>
             <p id="welcome-text">Select a module from the left margin to begin.</p>
             <br>
@@ -51,7 +51,7 @@
                 <h3>Essential Hardware</h3>
                 <p>You can't have a PC (personal computer) without these essential parts:</p>
                 <br>
-                <p tyle="font-style: italic;">Click each card to switch between an image and a description of the hardware component</p>
+                <p style="font-style: italic;">Click each card to switch between an image and a description of the hardware component</p>
                 <div id="hardware-gallery-container">
                     <button class="gallery-arrow" id="hardware-left" aria-label="Previous">&#8592;</button>
                     <div id="hardware-gallery">
@@ -61,9 +61,18 @@
                 </div>
                 <br>
                 <h3>Set Up Items | Peripherals</h3>
-                <p>Peripherals allow the user to give input to the PC and allows the PC to produce output for the user.</p>
+                <p>Peripherals allow the user to give input to the PC and receive output from the PC.</p>
                 <br>
-                
+
+                <div id="peripherals-panel" class="peripherals-panel">
+                    <div class="peripheral-display">
+                        <button class="gallery-arrow" id="periph-prev" aria-label="Previous peripheral">&#8592;</button>
+                        <div class="periph-content" id="periph-content"></div>
+                        <button class="gallery-arrow" id="periph-next" aria-label="Next peripheral">&#8594;</button>
+                    </div>
+                    <div class="periph-thumbs" id="periph-thumbs" role="tablist" aria-label="Peripheral selector"></div>
+                </div>
+                <br>
             </section>
 
             <section id="resourcing">
