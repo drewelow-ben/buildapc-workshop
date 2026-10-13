@@ -94,7 +94,7 @@ const hardwareData = [
         description: 'Power supply takes electricity from the wall outlet and distributes it to the rest of the computer hardware.'
     },
     {
-        img: '.pexels-zeleboba-28190155.jpg',
+        img: './assets/pexels-zeleboba-28190155.jpg',
         title: 'Case | Box | Tower',
         description: 'A container for all of the internal hardware.'
     },
