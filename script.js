@@ -84,8 +84,8 @@ const hardwareData = [
         title: 'CPU Cooling',
         description: 'The CPU generates a lot of heat. Cooling is needed to protect from overheating.',
     },
-        {
-        img: '',
+    {
+        img: './assets/pexels-zeleboba-29185662.jpg',
         title: 'Power Supply | PSU',
         description: 'Power supply takes electricity from the wall outlet and distributes it to the rest of the computer hardware.',
     },
