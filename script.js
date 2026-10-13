@@ -76,7 +76,7 @@ const hardwareData = [
     {
         img: './assets/pexels-nicolas-foster-65973708-14887610.jpg',
         title: 'Motherboard',
-        description: 'A motherboard connects all components together and routes electrical signals and communication between them.'
+        description: 'A motherboard connects all components together and routes electrical signals and communication between them. The motherboard has all of the ports and connectors for monitors/displays, keyboards, audio components, and more.'
     },
     {
         img: './assets/pexels-jonathanborba-37368174.jpg',
@@ -92,7 +92,12 @@ const hardwareData = [
         img: './assets/pexels-zeleboba-29185662.jpg',
         title: 'Power Supply | PSU',
         description: 'Power supply takes electricity from the wall outlet and distributes it to the rest of the computer hardware.'
-    }
+    },
+    {
+        img: './assets/pexels-zeleboba-29185662.jpg',
+        title: 'Case | Box | Tower',
+        description: 'A container for all of the internal hardware.'
+    },
 ];
 
 let galleryIndex = 0;
