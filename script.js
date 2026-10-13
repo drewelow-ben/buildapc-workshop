@@ -135,7 +135,69 @@ function setupHardwareGallery() {
         renderFlashcard(galleryIndex);
     };
 
-    renderFlashcard(galleryIndex);
+document.addEventListener('DOMContentLoaded', setupHardwareGallery);
+
+    const peripherals = [
+  {
+    name: "Keyboard",
+    image: "./assets/keyboard.jpg",
+    description: "Allows you to type commands and text into the computer."
+  },
+  {
+    name: "Mouse",
+    image: "./assets/mouse.jpg",
+    description: "Lets you move the pointer and click on items on screen."
+  },
+  {
+    name: "Monitor",
+    image: "./assets/monitor.jpg",
+    description: "Displays the computer output visually for the user."
+  },
+  {
+    name: "Speakers / Headphones",
+    image: "./assets/audio.jpg",
+    description: "Produces sound for video, music, games, and system alerts."
+  }
+];
+
+let peripheralIndex = 0;
+
+function renderPeripheral(index) {
+  const item = peripherals[index];
+  document.getElementById("periph-content").innerHTML = `
+    <img src="${item.image}" alt="${item.name}" class="peripheral-image">
+    <div class="peripheral-info">
+      <h4>${item.name}</h4>
+      <p>${item.description}</p>
+    </div>
+  `;
+
+  const thumbs = document.getElementById("periph-thumbs");
+  thumbs.innerHTML = peripherals.map((peripheral, i) => `
+    <button class="peripheral-thumb ${i === index ? "active" : ""}" data-index="${i}">
+      ${peripheral.name}
+    </button>
+  `).join("");
+
+  thumbs.querySelectorAll(".peripheral-thumb").forEach(btn => {
+    btn.addEventListener("click", () => {
+      peripheralIndex = Number(btn.dataset.index);
+      renderPeripheral(peripheralIndex);
+    });
+  });
 }
 
-document.addEventListener('DOMContentLoaded', setupHardwareGallery);
+document.getElementById("periph-prev").addEventListener("click", () => {
+  peripheralIndex = (peripheralIndex - 1 + peripherals.length) % peripherals.length;
+  renderPeripheral(peripheralIndex);
+});
+
+document.getElementById("periph-next").addEventListener("click", () => {
+  peripheralIndex = (peripheralIndex + 1) % peripherals.length;
+  renderPeripheral(peripheralIndex);
+});
+
+renderPeripheral(0);
+
+    renderFlashcard(galleryIndex);
+}
