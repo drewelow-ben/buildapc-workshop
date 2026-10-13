@@ -16,8 +16,8 @@ function showSection(index) {
         link.classList.toggle('active', i === index);
     });
 
-    prevBtn.classList.toggle('disabled', index === 0);
-    nextBtn.classList.toggle('disabled', index === sections.length - 1);
+    if (prevBtn) prevBtn.classList.toggle('disabled', index === 0);
+    if (nextBtn) nextBtn.classList.toggle('disabled', index === sections.length - 1);
 
     currentIndex = index;
     window.scrollTo(0, 0);
@@ -32,19 +32,23 @@ sidebarLinks.forEach((link, index) => {
 });
 
 // Handle Bottom Navigation Button Clicks
-prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        showSection(currentIndex - 1);
-        if (welcomeText) welcomeText.style.display = 'none';
-    }
-});
+if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            showSection(currentIndex - 1);
+            if (welcomeText) welcomeText.style.display = 'none';
+        }
+    });
+}
 
-nextBtn.addEventListener('click', () => {
-    if (currentIndex < sections.length - 1) {
-        showSection(currentIndex + 1);
-        if (welcomeText) welcomeText.style.display = 'none';
-    }
-});
+if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < sections.length - 1) {
+            showSection(currentIndex + 1);
+            if (welcomeText) welcomeText.style.display = 'none';
+        }
+    });
+}
 
 // Handle initial URL hash positioning
 const currentHash = window.location.hash;
@@ -82,15 +86,15 @@ const hardwareData = [
     {
         img: './assets/pexels-zeleboba-5327981.jpg',
         title: 'CPU Cooling',
-        description: 'The CPU generates a lot of heat. Cooling is needed to protect from overheating.',
+        description: 'The CPU generates a lot of heat. Cooling is needed to protect from overheating.'
     },
     {
         img: './assets/pexels-zeleboba-29185662.jpg',
         title: 'Power Supply | PSU',
-        description: 'Power supply takes electricity from the wall outlet and distributes it to the rest of the computer hardware.',
-    },
-]; // <--- Correctly closed with a bracket
-            
+        description: 'Power supply takes electricity from the wall outlet and distributes it to the rest of the computer hardware.'
+    }
+];
+
 let galleryIndex = 0;
 let flipped = false;
 
@@ -117,10 +121,13 @@ function setupHardwareGallery() {
             </div>
         `;
 
-        document.getElementById('current-flashcard').onclick = function() {
-            flipped = !flipped;
-            renderFlashcard(galleryIndex);
-        };
+        const card = document.getElementById('current-flashcard');
+        if (card) {
+            card.onclick = function() {
+                flipped = !flipped;
+                renderFlashcard(galleryIndex);
+            };
+        }
     }
 
     leftBtn.onclick = () => {
@@ -135,69 +142,83 @@ function setupHardwareGallery() {
         renderFlashcard(galleryIndex);
     };
 
-document.addEventListener('DOMContentLoaded', setupHardwareGallery);
-
-    const peripherals = [
-  {
-    name: "Keyboard",
-    image: "./assets/keyboard.jpg",
-    description: "Allows you to type commands and text into the computer."
-  },
-  {
-    name: "Mouse",
-    image: "./assets/mouse.jpg",
-    description: "Lets you move the pointer and click on items on screen."
-  },
-  {
-    name: "Monitor",
-    image: "./assets/monitor.jpg",
-    description: "Displays the computer output visually for the user."
-  },
-  {
-    name: "Speakers / Headphones",
-    image: "./assets/audio.jpg",
-    description: "Produces sound for video, music, games, and system alerts."
-  }
-];
-
-let peripheralIndex = 0;
-
-function renderPeripheral(index) {
-  const item = peripherals[index];
-  document.getElementById("periph-content").innerHTML = `
-    <img src="${item.image}" alt="${item.name}" class="peripheral-image">
-    <div class="peripheral-info">
-      <h4>${item.name}</h4>
-      <p>${item.description}</p>
-    </div>
-  `;
-
-  const thumbs = document.getElementById("periph-thumbs");
-  thumbs.innerHTML = peripherals.map((peripheral, i) => `
-    <button class="peripheral-thumb ${i === index ? "active" : ""}" data-index="${i}">
-      ${peripheral.name}
-    </button>
-  `).join("");
-
-  thumbs.querySelectorAll(".peripheral-thumb").forEach(btn => {
-    btn.addEventListener("click", () => {
-      peripheralIndex = Number(btn.dataset.index);
-      renderPeripheral(peripheralIndex);
-    });
-  });
-}
-
-document.getElementById("periph-prev").addEventListener("click", () => {
-  peripheralIndex = (peripheralIndex - 1 + peripherals.length) % peripherals.length;
-  renderPeripheral(peripheralIndex);
-});
-
-document.getElementById("periph-next").addEventListener("click", () => {
-  peripheralIndex = (peripheralIndex + 1) % peripherals.length;
-  renderPeripheral(peripheralIndex);
-});
-
-renderPeripheral(0);
-
     renderFlashcard(galleryIndex);
 }
+
+// --- PERIPHERALS PANEL LOGIC ---
+function setupPeripherals() {
+    const periphContent = document.getElementById("periph-content");
+    const periphThumbs = document.getElementById("periph-thumbs");
+    const periphPrev = document.getElementById("periph-prev");
+    const periphNext = document.getElementById("periph-next");
+
+    if (!periphContent || !periphThumbs || !periphPrev || !periphNext) return;
+
+    const peripherals = [
+        {
+            name: "Keyboard",
+            image: "./assets/keyboard.jpg",
+            description: "Allows you to type commands and text into the computer."
+        },
+        {
+            name: "Mouse",
+            image: "./assets/mouse.jpg",
+            description: "Lets you move the pointer and click on items on screen."
+        },
+        {
+            name: "Monitor",
+            image: "./assets/monitor.jpg",
+            description: "Displays the computer output visually for the user."
+        },
+        {
+            name: "Speakers / Headphones",
+            image: "./assets/speakers.jpg",
+            description: "Produces sound for video, music, games, and system alerts."
+        }
+    ];
+
+    let peripheralIndex = 0;
+
+    function renderPeripheral(index) {
+        const item = peripherals[index];
+        periphContent.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" class="peripheral-image">
+            <div class="peripheral-info">
+                <h4>${item.name}</h4>
+                <p>${item.description}</p>
+            </div>
+        `;
+
+        periphThumbs.innerHTML = peripherals.map((p, i) => `
+            <button class="peripheral-thumb ${i === index ? "active" : ""}" data-index="${i}" aria-selected="${i === index}">
+                ${p.name}
+            </button>
+        `).join("");
+
+        periphThumbs.querySelectorAll(".peripheral-thumb").forEach(btn => {
+            btn.addEventListener("click", () => {
+                peripheralIndex = Number(btn.dataset.index);
+                renderPeripheral(peripheralIndex);
+            });
+        });
+    }
+
+    periphPrev.addEventListener("click", () => {
+        peripheralIndex = (peripheralIndex - 1 + peripherals.length) % peripherals.length;
+        renderPeripheral(peripheralIndex);
+    });
+
+    periphNext.addEventListener("click", () => {
+        peripheralIndex = (peripheralIndex + 1) % peripherals.length;
+        renderPeripheral(peripheralIndex);
+    });
+
+    // initial render
+    renderPeripheral(peripheralIndex);
+}
+
+// Initialize both widgets when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    setupHardwareGallery();
+    setupPeripherals();
+});
