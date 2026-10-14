@@ -275,7 +275,7 @@ const expansionData = [
   },
   {
     title: 'Capture Card',
-    img: './assets/capture-placeholder.jpg',
+    img: './assets/capture.jpg',
     description: 'A capture card records or streams video from another device, like a console or camera, into the computer.'
   },
   {
