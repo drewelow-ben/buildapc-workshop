@@ -426,3 +426,39 @@ section h2 {
   cursor: pointer;
   white-space: nowrap;
 }
+
+/* Resourcing section specific styles */
+#resourcing ul,
+#resourcing ol {
+  /* indent list markers to line up with heading text */
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  line-height: 1.55;
+}
+
+#resourcing .resourcing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+#resourcing .icon {
+  display: inline-block;
+  width: 28px;
+  text-align: center;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+/* make sure h4s inside the grid look consistent */
+#resourcing h4 {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 720px) {
+  #resourcing .resourcing-grid {
+    grid-template-columns: 1fr;
+  }
+}
