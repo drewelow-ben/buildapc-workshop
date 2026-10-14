@@ -471,6 +471,14 @@ section h2 {
   }
 }
 
+/* Safety section specific styles: align list markers under headings similar to Resourcing */
+#safety ul,
+#safety ol {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  line-height: 1.55;
+}
+
 /* --- Hardware panel additions --- */
 /* hide the old external arrows now that panel has internal controls */
 #hardware-left, #hardware-right {
