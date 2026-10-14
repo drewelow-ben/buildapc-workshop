@@ -107,22 +107,25 @@ function setupHardwareGallery() {
     const leftBtn = document.getElementById('hardware-left');
     const rightBtn = document.getElementById('hardware-right');
 
-    if (!gallery || !leftBtn || !rightBtn) return;
+    if (!gallery) return;
 
+    // render function inserts the panel and internal arrows
     function renderHardware(index) {
         const item = hardwareData[index];
         gallery.innerHTML = `
-            <div class="peripherals-panel">
+            <div class="peripherals-panel hardware-panel" tabindex="0">
                 <div class="peripheral-display" aria-live="polite">
+                    <button class="gallery-arrow prev" aria-label="Previous item" type="button">&larr;</button>
                     <img src="${item.img}" alt="${item.title}" class="peripheral-image">
                     <div class="peripheral-info">
                         <h4>${item.title}</h4>
                         <p>${item.description}</p>
                     </div>
+                    <button class="gallery-arrow next" aria-label="Next item" type="button">&rarr;</button>
                 </div>
                 <div class="periph-thumbs hardware-thumbs" role="tablist" aria-label="Hardware thumbnails">
                     ${hardwareData.map((h, i) => `
-                        <button class="peripheral-thumb ${i === index ? 'active' : ''}" data-index="${i}" aria-selected="${i === index}">
+                        <button class="peripheral-thumb ${i === index ? 'active' : ''}" role="tab" aria-selected="${i === index}" data-index="${i}" type="button">
                             ${h.title}
                         </button>
                     `).join('')}
@@ -130,24 +133,57 @@ function setupHardwareGallery() {
             </div>
         `;
 
+        // wire up thumbnails
         const thumbs = gallery.querySelectorAll('.peripheral-thumb');
         thumbs.forEach(btn => {
             btn.addEventListener('click', () => {
                 galleryIndex = Number(btn.dataset.index);
                 renderHardware(galleryIndex);
+                const active = gallery.querySelector('.peripheral-thumb.active');
+                if (active) active.focus();
+            });
+
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    galleryIndex = (Number(btn.dataset.index) + 1) % hardwareData.length;
+                    renderHardware(galleryIndex);
+                    e.preventDefault();
+                } else if (e.key === 'ArrowLeft') {
+                    galleryIndex = (Number(btn.dataset.index) - 1 + hardwareData.length) % hardwareData.length;
+                    renderHardware(galleryIndex);
+                    e.preventDefault();
+                }
             });
         });
+
+        // internal arrows
+        const internalPrev = gallery.querySelector('.gallery-arrow.prev');
+        const internalNext = gallery.querySelector('.gallery-arrow.next');
+
+        if (internalPrev) {
+            internalPrev.onclick = () => {
+                galleryIndex = (galleryIndex - 1 + hardwareData.length) % hardwareData.length;
+                renderHardware(galleryIndex);
+            };
+        }
+        if (internalNext) {
+            internalNext.onclick = () => {
+                galleryIndex = (galleryIndex + 1) % hardwareData.length;
+                renderHardware(galleryIndex);
+            };
+        }
+
+        // keep external arrows working (even if hidden by CSS)
+        if (leftBtn) leftBtn.onclick = internalPrev ? internalPrev.onclick : null;
+        if (rightBtn) rightBtn.onclick = internalNext ? internalNext.onclick : null;
+
+        // animate panel in
+        const panel = gallery.querySelector('.hardware-panel');
+        if (panel) {
+            panel.classList.remove('is-visible');
+            requestAnimationFrame(() => panel.classList.add('is-visible'));
+        }
     }
-
-    leftBtn.addEventListener('click', () => {
-        galleryIndex = (galleryIndex - 1 + hardwareData.length) % hardwareData.length;
-        renderHardware(galleryIndex);
-    });
-
-    rightBtn.addEventListener('click', () => {
-        galleryIndex = (galleryIndex + 1) % hardwareData.length;
-        renderHardware(galleryIndex);
-    });
 
     // initial render
     renderHardware(galleryIndex);
