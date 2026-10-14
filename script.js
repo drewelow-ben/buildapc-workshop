@@ -261,12 +261,6 @@ function setupPeripherals() {
     renderPeripheral(peripheralIndex);
 }
 
-// Initialize both widgets when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    setupHardwareGallery();
-    setupPeripherals();
-});
-
 // --- EXPANSION PANEL DATA ---
 const expansionData = [
   {
@@ -358,3 +352,10 @@ function setupExpansionPanel() {
 
     render(currentIndex);
 }
+
+// Initialize all 3 widgets when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+     setupExpansionPanel();
+    setupHardwareGallery();
+    setupPeripherals();
+});
