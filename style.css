@@ -186,7 +186,9 @@ section h2 {
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    max-width: 550px;
+    /* match the content container width for visual consistency */
+    max-width: 850px;
+    width: 100%;
 }
 
 .gallery-arrow {
@@ -350,7 +352,7 @@ section h2 {
 }
 .peripherals-panel {
   margin-top: 1rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e9ecef;
   border-radius: 12px;
   background: #f8fafc;
   padding: 1rem;
@@ -476,12 +478,14 @@ section h2 {
 }
 
 .hardware-panel {
-  padding: 0.6rem;
+  padding: 1rem; /* match peripherals padding */
   background: #f8fafc;
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e9ecef;
   box-shadow: 0 6px 18px rgba(20,24,28,0.04);
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hardware-panel:focus {
