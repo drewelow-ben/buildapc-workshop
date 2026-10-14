@@ -443,13 +443,19 @@ section h2 {
   align-items: start;
 }
 
+#resourcing h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 #resourcing .icon {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
-  text-align: center;
-  margin-right: 0.5rem;
-  font-size: 1.1rem;
-  vertical-align: middle;
+  min-width: 28px;
+  color: #2c3e50;
 }
 
 /* make sure h4s inside the grid look consistent */
