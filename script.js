@@ -266,7 +266,7 @@ const expansionData = [
   {
     title: 'Video Card | GPU',
     img: './assets/gpu-placeholder.jpg',
-    description: 'A graphics card (GPU) renders images, video, and animations. It is important for games, video editing, and some compute tasks.'
+    description: 'A graphics card (GPU) renders images, video, and animations. It is important for games, video editing, and 3D design work.'
   },
   {
     title: 'Sound Card | Audio Interface',
@@ -280,7 +280,7 @@ const expansionData = [
   },
   {
     title: 'Network Card | NIC',
-    img: './assets/nic-placeholder.jpg',
+    img: './assets/images.jpg',
     description: 'A NIC (network interface card) connects the PC to wired or wireless networks and can improve speed, reliability, and features.'
   }
 ];
