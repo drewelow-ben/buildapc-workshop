@@ -61,7 +61,7 @@ if (hashIndex !== -1) {
     showSection(0);
 }
 
-// --- FLASHCARD GALLERY LOGIC ---
+// --- HARDWARE PANEL DATA ---
 const hardwareData = [
     {
         img: './assets/pexels-zeleboba-4526279.jpg',
@@ -76,7 +76,7 @@ const hardwareData = [
     {
         img: './assets/pexels-nicolas-foster-65973708-14887610.jpg',
         title: 'Motherboard',
-        description: 'A motherboard connects all components together and routes electrical signals and communication between them. The motherboard has all of the ports and connectors for monitors/displays, keyboards, audio components, and more.'
+        description: 'A motherboard connects all components together and routes electrical signals and communication between them. The motherboard has all of the ports and connectors for monitors and other devices.'
     },
     {
         img: './assets/pexels-jonathanborba-37368174.jpg',
@@ -101,7 +101,6 @@ const hardwareData = [
 ];
 
 let galleryIndex = 0;
-let flipped = false;
 
 function setupHardwareGallery() {
     const gallery = document.getElementById('hardware-gallery');
@@ -110,44 +109,48 @@ function setupHardwareGallery() {
 
     if (!gallery || !leftBtn || !rightBtn) return;
 
-    function renderFlashcard(index) {
-        const { img, title, description } = hardwareData[index];
+    function renderHardware(index) {
+        const item = hardwareData[index];
         gallery.innerHTML = `
-            <div class="flashcard${flipped ? ' flipped' : ''}" id="current-flashcard">
-                <div class="flashcard-inner">
-                    <div class="flashcard-front">
-                        <img src="${img}" alt="${title}">
-                        <strong>${title}</strong>
+            <div class="peripherals-panel">
+                <div class="peripheral-display" aria-live="polite">
+                    <img src="${item.img}" alt="${item.title}" class="peripheral-image">
+                    <div class="peripheral-info">
+                        <h4>${item.title}</h4>
+                        <p>${item.description}</p>
                     </div>
-                    <div class="flashcard-back">
-                        <p>${description}</p>
-                    </div>
+                </div>
+                <div class="periph-thumbs hardware-thumbs" role="tablist" aria-label="Hardware thumbnails">
+                    ${hardwareData.map((h, i) => `
+                        <button class="peripheral-thumb ${i === index ? 'active' : ''}" data-index="${i}" aria-selected="${i === index}">
+                            ${h.title}
+                        </button>
+                    `).join('')}
                 </div>
             </div>
         `;
 
-        const card = document.getElementById('current-flashcard');
-        if (card) {
-            card.onclick = function() {
-                flipped = !flipped;
-                renderFlashcard(galleryIndex);
-            };
-        }
+        const thumbs = gallery.querySelectorAll('.peripheral-thumb');
+        thumbs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                galleryIndex = Number(btn.dataset.index);
+                renderHardware(galleryIndex);
+            });
+        });
     }
 
-    leftBtn.onclick = () => {
+    leftBtn.addEventListener('click', () => {
         galleryIndex = (galleryIndex - 1 + hardwareData.length) % hardwareData.length;
-        flipped = false;
-        renderFlashcard(galleryIndex);
-    };
+        renderHardware(galleryIndex);
+    });
 
-    rightBtn.onclick = () => {
+    rightBtn.addEventListener('click', () => {
         galleryIndex = (galleryIndex + 1) % hardwareData.length;
-        flipped = false;
-        renderFlashcard(galleryIndex);
-    };
+        renderHardware(galleryIndex);
+    });
 
-    renderFlashcard(galleryIndex);
+    // initial render
+    renderHardware(galleryIndex);
 }
 
 // --- PERIPHERALS PANEL LOGIC ---
