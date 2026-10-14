@@ -265,7 +265,7 @@ function setupPeripherals() {
 const expansionData = [
   {
     title: 'Video Card | GPU',
-    img: './assets/gpu-placeholder.jpg',
+    img: './assets/pexels-zeleboba-28743215.jpg',
     description: 'A graphics card (GPU) renders images, video, and animations. It is important for games, video editing, and 3D design work.'
   },
   {
