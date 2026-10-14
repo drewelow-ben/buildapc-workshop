@@ -270,7 +270,7 @@ const expansionData = [
   },
   {
     title: 'Sound Card | Audio Interface',
-    img: './assets/audio-placeholder.jpg',
+    img: './assets/pexels-alenakroon-9798690.jpg',
     description: 'An audio interface or sound card improves input and output audio quality for recording, playback, and communication.'
   },
   {
