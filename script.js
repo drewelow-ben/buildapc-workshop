@@ -266,3 +266,95 @@ document.addEventListener('DOMContentLoaded', () => {
     setupHardwareGallery();
     setupPeripherals();
 });
+
+// --- EXPANSION PANEL DATA ---
+const expansionData = [
+  {
+    title: 'Video Card | GPU',
+    img: './assets/gpu-placeholder.jpg',
+    description: 'A graphics card (GPU) renders images, video, and animations. It is important for games, video editing, and some compute tasks.'
+  },
+  {
+    title: 'Sound Card | Audio Interface',
+    img: './assets/audio-placeholder.jpg',
+    description: 'An audio interface or sound card improves input and output audio quality for recording, playback, and communication.'
+  },
+  {
+    title: 'Capture Card',
+    img: './assets/capture-placeholder.jpg',
+    description: 'A capture card records or streams video from another device, like a console or camera, into the computer.'
+  },
+  {
+    title: 'Network Card | NIC',
+    img: './assets/nic-placeholder.jpg',
+    description: 'A NIC (network interface card) connects the PC to wired or wireless networks and can improve speed, reliability, and features.'
+  }
+];
+
+function setupExpansionPanel() {
+    const content = document.getElementById('expansion-content');
+    const thumbs = document.getElementById('expansion-thumbs');
+    const prevBtn = document.getElementById('expansion-prev');
+    const nextBtn = document.getElementById('expansion-next');
+
+    if (!content || !thumbs || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+
+    function render(index) {
+        const item = expansionData[index];
+
+        content.innerHTML = `
+            <img src="${item.img}" alt="${item.title}" class="peripheral-image" loading="lazy">
+            <div class="peripheral-info">
+                <h4>${item.title}</h4>
+                <p>${item.description}</p>
+            </div>
+        `;
+
+        thumbs.innerHTML = expansionData.map((item, idx) => `
+            <button
+                class="peripheral-thumb ${idx === index ? 'active' : ''}"
+                data-index="${idx}"
+                type="button"
+                role="tab"
+                aria-selected="${idx === index}"
+            >
+                ${item.title}
+            </button>
+        `).join('');
+
+        thumbs.querySelectorAll('.peripheral-thumb').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentIndex = Number(btn.dataset.index);
+                render(currentIndex);
+                const active = thumbs.querySelector('.peripheral-thumb.active');
+                if (active) active.focus();
+            });
+
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    currentIndex = (Number(btn.dataset.index) + 1) % expansionData.length;
+                    render(currentIndex);
+                    e.preventDefault();
+                } else if (e.key === 'ArrowLeft') {
+                    currentIndex = (Number(btn.dataset.index) - 1 + expansionData.length) % expansionData.length;
+                    render(currentIndex);
+                    e.preventDefault();
+                }
+            });
+        });
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + expansionData.length) % expansionData.length;
+        render(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % expansionData.length;
+        render(currentIndex);
+    });
+
+    render(currentIndex);
+}
