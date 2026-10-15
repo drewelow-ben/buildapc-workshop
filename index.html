@@ -14,11 +14,12 @@
         <ul>
             <li><a href="#intro" class="active">1. Introduction and Purpose</a></li>
             <li><a href="#hardware">2. Computer Hardware Overview</a></li>
-            <li><a href="#resourcing">3. Resourcing Equipment: New vs. Used</a></li>
-            <li><a href="#safety">4. Safety</a></li>
-            <li><a href="#assembly">5. Assembly</a></li>
-            <li><a href="#os-setup">6. OS Install & Set Up</a></li>
-            <li><a href="#disposal">7. Proper Disposal & Data Destruction</a></li>
+            <li><a href="#compatibility">3. Hardware Compatibility</a></li>
+            <li><a href="#resourcing">4. Resourcing Equipment: New vs. Used</a></li>
+            <li><a href="#safety">5. Safety</a></li>
+            <li><a href="#assembly">6. Assembly</a></li>
+            <li><a href="#os-setup">7. OS Install & Set Up</a></li>
+            <li><a href="#disposal">8. Proper Disposal & Data Destruction</a></li>
         </ul>
     </nav>
 
@@ -50,24 +51,6 @@
                 <h2>II. Computer Hardware Overview</h2>
                 <h3>Essential Hardware</h3>
                 <p>You can't have a PC (personal computer) without these essential parts:</p>
-
-                <!-- Hardware compatibility callout: highlights the most important compatibility checks and collapses verbose details -->
-                <div class="callout hardware-compatibility" role="region" aria-labelledby="hc-heading">
-                  <h3 id="hc-heading">Hardware Compatibility — Quick Guide</h3>
-                  <p class="muted">A short checklist to help you avoid common mismatches when mixing components.</p>
-                  <ul class="compat-list">
-                    <li><strong>CPU &amp; Motherboard:</strong> Match the socket (e.g., AM4, LGA1200) and check supported chipsets/BIOS.</li>
-                    <li><strong>RAM:</strong> Confirm DDR generation, speed, and max capacity supported by the board.</li>
-                    <li><strong>Power Supply (PSU):</strong> Ensure sufficient wattage and the correct connectors for GPU/CPU.</li>
-                    <li><strong>Case &amp; GPU:</strong> Verify GPU length and cooler height fit inside the chosen case.</li>
-                    <li><strong>Storage:</strong> SATA vs NVMe (M.2) slots and available ports on the motherboard.</li>
-                    <li><strong>Cooling &amp; Clearance:</strong> Check CPU cooler height and case airflow compatibility.</li>
-                  </ul>
-                  <details>
-                    <summary>More compatibility tips and common troubleshooting</summary>
-                    <p style="margin-top:0.5rem;">If you're reusing older parts, look up motherboard manuals and vendor compatibility lists. Update the motherboard BIOS if needed before installing a new CPU generation. When in doubt, test components outside the case or use a known-good PSU to rule out power issues. Keep a short compatibility note with donor parts (RAM speed, CPU model, PSU wattage) to speed up diagnostics.</p>
-                  </details>
-                </div>
 
                 <br>
                 <div id="hardware-gallery-container">
@@ -117,8 +100,31 @@
                 <br>
             </section>
 
+            <section id="compatibility">
+                <h2>III. Hardware Compatibility</h2>
+
+                <!-- Simple, plain-language callout for middle-school / ELL readers -->
+                <div class="callout hardware-compatibility" role="region" aria-labelledby="hc-brief">
+                  <h3 id="hc-brief">Quick Guide — The Big Picture</h3>
+                  <p class="muted">Short, easy checks to make sure parts will work together.</p>
+                  <ul class="compat-list">
+                    <li><strong>CPU &amp; board:</strong> Make sure the CPU fits the board like matching puzzle pieces.</li>
+                    <li><strong>Memory (RAM):</strong> Make sure the RAM type (DDR3 / DDR4 / DDR5) matches the board and there is space for it.</li>
+                    <li><strong>Power:</strong> Make sure the power supply has enough power and the right plugs for your parts.</li>
+                    <li><strong>Size:</strong> Make sure big parts like the graphics card and cooler fit inside the case.</li>
+                    <li><strong>Drives:</strong> Make sure the board has places for your hard drives or SSDs.</li>
+                    <li><strong>Cooling:</strong> Make sure there is room for fans and air to move around the parts.</li>
+                  </ul>
+                  <details>
+                    <summary>What to do if you're not sure</summary>
+                    <p style="margin-top:0.5rem;">Ask a teacher, volunteer, or classmate for help. Manuals often show what fits. If a part looks broken or smells burned, do not use it.</p>
+                  </details>
+                </div>
+
+            </section>
+
             <section id="resourcing">
-                <h2>III. Resourcing Equipment: New vs. Used</h2>
+                <h2>IV. Resourcing Equipment: New vs. Used</h2>
                 <p>When you plan to build your own PC, there is a choice to use new hardware or used/refurbished components (or a combination). Both choices can work. This section explains the ma[...]
                 <br>
                 <h3>Quick answer</h3>
@@ -181,7 +187,7 @@
             </section>
 
             <section id="safety">
-                <h2>IV. Safety</h2>
+                <h2>V. Safety</h2>
                 <p>Key safety considerations regarding tools, electricity, and component handling.</p>
                 <br>
                 <h3>Before you start</h3>
@@ -244,17 +250,17 @@
             </section>
 
             <section id="assembly">
-                <h2>V. Assembly</h2>
+                <h2>VI. Assembly</h2>
                 <p>Hands-on assembly of a fully functional PC to take home.</p>
             </section>
 
             <section id="os-setup">
-                <h2>VI. OS Install & Setup</h2>
+                <h2>VII. OS Install & Setup</h2>
                 <p>Installing an operating system and ensuring successful operation.</p>
             </section>
 
             <section id="disposal">
-                <h2>VII. Proper Disposal & Data Destruction</h2>
+                <h2>VIII. Proper Disposal & Data Destruction</h2>
                 <p>Responsible recycling and the importance of data destruction.</p>
             </section>
 
@@ -279,4 +285,3 @@
 
 </body>
 </html>
-
