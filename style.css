@@ -119,12 +119,16 @@ body {
     color: var(--sidebar-bg);
 }
 
+/* UPDATED: Centered, full-width, un-cropped images for section illustrations */
 .section-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+    display: block;          /* make image a block so margin auto can center it */
+    width: 100%;             /* fill the content column width */
+    height: auto;            /* keep natural aspect ratio (no cropping) */
+    max-width: 100%;         /* never overflow the container */
+    object-fit: contain;     /* safe fallback if width/height constraints apply */
+    object-position: center; /* center the image inside its box */
     border-radius: 6px;
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem;     /* center horizontally and keep space below */
 }
 
 /* Section visibility */
