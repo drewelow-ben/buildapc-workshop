@@ -566,3 +566,48 @@ section h2 {
     max-height: 220px;
   }
 }
+
+/* --- New: Hardware compatibility callout styles --- */
+.callout {
+  border-left: 6px solid var(--accent-color);
+  background: linear-gradient(180deg, rgba(52,152,219,0.03), rgba(52,152,219,0.01));
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  margin: 1rem 0 1.5rem;
+}
+
+.callout h3 {
+  margin: 0 0 0.35rem;
+  color: var(--sidebar-bg);
+  font-size: 1.1rem;
+}
+
+.callout .muted {
+  color: #556;
+  margin-bottom: 0.5rem;
+}
+
+.callout .compat-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.25rem 0;
+  column-count: 2;
+  column-gap: 1rem;
+}
+
+.callout details {
+  margin-top: 0.6rem;
+}
+
+.callout summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .callout .compat-list {
+    column-count: 1;
+  }
+}
+
