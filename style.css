@@ -119,12 +119,16 @@ body {
     color: var(--sidebar-bg);
 }
 
+/* UPDATED: Centered, full-width, un-cropped images for section illustrations */
 .section-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+    display: block;          /* make image a block so margin auto can center it */
+    width: 100%;             /* fill the content column width */
+    height: auto;            /* keep natural aspect ratio (no cropping) */
+    max-width: 100%;         /* never overflow the container */
+    object-fit: contain;     /* safe fallback if width/height constraints apply */
+    object-position: center; /* center the image inside its box */
     border-radius: 6px;
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem;     /* center horizontally and keep space below */
 }
 
 /* Section visibility */
@@ -610,4 +614,27 @@ section h2 {
     column-count: 1;
   }
 }
+
+/* --- OVERRIDES: Ensure assembly step images are never cropped or stretched --- */
+.assembly-guide .assembly-steps li {
+  overflow: visible !important;
+}
+.assembly-guide .assembly-steps li .section-img {
+  display: block !important;
+  width: 100% !important;       /* fill the content column */
+  height: auto !important;      /* preserve aspect ratio */
+  max-width: 100% !important;
+  max-height: none !important;  /* remove any height caps */
+  object-fit: none !important;  /* do not crop or scale by cover/contain */
+  object-position: center !important;
+  margin: 0 auto 1rem !important;
+}
+
+/* If you prefer images to render at their natural width up to container limit, use this variant instead:
+.assembly-guide .assembly-steps li .section-img {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+*/
 
