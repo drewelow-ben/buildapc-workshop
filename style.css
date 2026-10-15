@@ -615,3 +615,26 @@ section h2 {
   }
 }
 
+/* --- OVERRIDES: Ensure assembly step images are never cropped or stretched --- */
+.assembly-guide .assembly-steps li {
+  overflow: visible !important;
+}
+.assembly-guide .assembly-steps li .section-img {
+  display: block !important;
+  width: 100% !important;       /* fill the content column */
+  height: auto !important;      /* preserve aspect ratio */
+  max-width: 100% !important;
+  max-height: none !important;  /* remove any height caps */
+  object-fit: none !important;  /* do not crop or scale by cover/contain */
+  object-position: center !important;
+  margin: 0 auto 1rem !important;
+}
+
+/* If you prefer images to render at their natural width up to container limit, use this variant instead:
+.assembly-guide .assembly-steps li .section-img {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+*/
+
