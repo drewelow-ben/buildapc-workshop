@@ -637,3 +637,34 @@ section h2 {
   border-radius: 8px;
 }
 
+/* Make peripherals and expansion panels stack the image above the description on small screens */
+@media (max-width: 768px) {
+  .peripheral-display {
+    flex-direction: column;
+    align-items: center;
+  }
+  .periph-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .peripheral-image {
+    width: 100%;
+    height: auto;
+    max-height: 240px;
+  }
+  .peripheral-info {
+    width: 100%;
+  }
+  .periph-thumbs {
+    justify-content: center;
+  }
+}
+
+
+/* --- OVERRIDES: Ensure assembly step images are never cropped or stretched --- */
+/* --- (note: duplicate heading left intentionally to preserve original ordering) --- */
+
+
+
