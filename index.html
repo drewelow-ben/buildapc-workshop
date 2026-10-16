@@ -353,7 +353,7 @@
                       <br>
                     <li>
                       <h4>Step 10 — Do a first power test (POST)</h4>
-                        <p>Before closing the case, connect a monitor, one stick of RAM, and the power. Turn on the power supply and press the case power button. If the system posts, you will see the monitor show the motherboard logo or a BIOS screen. If it does not, double-check connections.</p>
+                        <p>Before closing the case, connect a monitor, one stick of RAM, and the power. Turn on the power supply and press the case power button. If the system posts, you will see the motherboard logo or a BIOS screen. If it does not, double-check connections.</p>
                         <br>
                       <img src="./assets/step 10.png" alt="Short test build on bench showing monitor with BIOS" class="section-img">
                     
@@ -379,57 +379,74 @@
             <section id="os-setup">
                 <h2>VII. OS Install & Setup</h2>
 
-                <!-- Simple, plain-language callout for middle-school / ELL readers -->
+                <!-- Shortened, spaced callout for middle-school / ELL readers -->
                 <div class="callout os-install" role="region" aria-labelledby="os-brief">
                   <h3 id="os-brief">Quick Guide — Install from USB</h3>
-                  <p class="muted">Easy steps to install Windows or Linux Mint from a bootable USB. Do the checks below before you start installing.</p>
+                  <p class="muted">Short steps for Windows and Linux Mint installs from a bootable USB. Do the checks below first.</p>
 
                   <ul class="compat-list">
-                    <li><strong>Before you power on:</strong> Make sure the monitor, keyboard, and mouse are plugged in. Turn on the power switch on the back of the power supply. Use one stick of RAM for testing and make sure the storage drive is connected. Have your bootable USB ready (created on another computer).</li>
+                    <li>
+                      <p><strong>Before power on:</strong> Check monitor, keyboard, mouse, and the PSU switch. Use one stick of RAM for testing and make sure the storage drive is connected. Have your bootable USB ready.</p>
+                    </li>
 
-                    <li><strong>Power on and watch POST:</strong> Turn on the PC and watch the screen. Fans should spin and you may hear a short beep. If nothing appears, power off and check power cables and front-panel connectors.</li>
+                    <br>
 
-                    <li><strong>Enter BIOS / UEFI:</strong> Right after powering on press the key shown on screen (often Delete, F2, F10, or F12). If you miss it, restart and try again. Some boards have a Boot Menu key (often F12) you can use to pick the USB directly.</li>
+                    <li>
+                      <p><strong>Power on & POST:</strong> Turn on the PC. Fans should spin and you may hear a short beep. If nothing shows, power off and recheck cables and front-panel connectors.</p>
+                    </li>
 
-                    <li><strong>Quick BIOS checks (do these before installing):</strong>
+                    <br>
+
+                    <li>
+                      <p><strong>Enter BIOS/UEFI:</strong> Press the key shown on screen (Delete, F2, F10, or F12). Or use the Boot Menu (often F12) to pick the USB directly.</p>
+                    </li>
+
+                    <br>
+
+                    <li>
+                      <p><strong>Quick BIOS checks:</strong></p>
                       <ul>
-                        <li>Is the CPU and RAM listed correctly? If not, power off and reseat the parts.</li>
-                        <li>Is the storage drive (SSD or HDD) detected? If it is missing, re-check power and data cables.</li>
-                        <li>Enable USB boot or set the USB drive as the first boot device (or use the Boot Menu).</li>
-                        <li>Set SATA mode to AHCI for most modern drives (unless you need RAID).</li>
-                        <li>Choose UEFI mode if available — it is newer and works well with current Windows and Linux installers.</li>
-                        <li>For Linux Mint: you may need to disable Secure Boot if the USB is not signed. For Windows: Secure Boot can usually stay enabled.</li>
-                        <li>Save changes and exit so the PC will reboot to the USB installer.</li>
+                        <li>Is CPU and RAM shown correctly? If not, reseat parts.</li>
+                        <li>Is the drive detected? Re-check cables if missing.</li>
+                        <li>Enable USB boot or set USB first in boot order.</li>
+                        <li>Set SATA to AHCI and choose UEFI mode if available.</li>
+                        <li>Disable Secure Boot only if the Linux USB won't boot; Windows usually works with it on.</li>
                       </ul>
                     </li>
 
-                    <li><strong>Windows install — quick steps:</strong>
+                    <br>
+
+                    <li>
+                      <p><strong>Windows — short install:</strong></p>
                       <ol>
-                        <li>Boot from the Windows USB. Pick your language and click “Install now.”</li>
-                        <li>Enter a product key or choose “I don’t have a product key” to continue (you can enter it later).</li>
-                        <li>Choose “Custom: Install Windows only (advanced).” If the drive has old data or partitions you don't need, delete those partitions, then pick the unallocated space and click Next. Windows will create the needed partitions automatically.</li>
-                        <li>The PC will restart a few times. Follow the setup screens (region, keyboard, create a user or sign in with a Microsoft account).</li>
-                        <li>After you reach the desktop, run Windows Update and install drivers for the graphics card and chipset if needed.</li>
+                        <li>Boot from USB, click “Install now.”</li>
+                        <li>Choose “Custom” and install to the main drive (delete old partitions for a clean install).</li>
+                        <li>Finish setup, then run Windows Update and install drivers.</li>
                       </ol>
                     </li>
 
-                    <li><strong>Linux Mint install — quick steps:</strong>
+                    <br>
+
+                    <li>
+                      <p><strong>Linux Mint — short install:</strong></p>
                       <ol>
-                        <li>Boot from the Linux Mint USB. You can choose “Try Linux Mint” first to make sure everything (video, sound, Wi‑Fi) looks okay before installing.</li>
-                        <li>When ready, click the “Install Linux Mint” icon on the desktop.</li>
-                        <li>Follow the installer: pick language, keyboard layout, and whether to install third-party software for media and Wi‑Fi drivers.</li>
-                        <li>For Installation Type pick “Erase disk and install Linux Mint” for a simple clean install, or choose “Something else” to make custom partitions (root /, optional /home, and swap) if you want more control.</li>
-                        <li>Choose your time zone and create a username/password. The installer will copy files and install the bootloader (GRUB).</li>
-                        <li>Restart when prompted and remove the USB stick. Log in and open Update Manager to install updates and drivers.</li>
+                        <li>Boot USB; choose “Try” to check hardware or go straight to “Install Linux Mint.”</li>
+                        <li>Pick language, and choose “Erase disk” for a simple install or “Something else” for custom partitions.</li>
+                        <li>Finish install, remove USB, then use Update Manager to install updates and drivers.</li>
                       </ol>
                     </li>
 
-                    <li><strong>After install checks:</strong> Make sure the system boots without the USB plugged in. Connect to the internet and update the system. Check Device Manager (Windows) or Driver Manager (Mint) for missing drivers. Monitor temperatures and fans to make sure everything runs normally.</li>
+                    <br>
+
+                    <li>
+                      <p><strong>After install:</strong> Make sure the system boots without the USB, connect to the internet, update the system, and check for missing drivers. Watch temperatures and fans.</p>
+                    </li>
+
                   </ul>
 
                   <details>
-                    <summary>Troubleshooting tips</summary>
-                    <p style="margin-top:0.5rem;">If the USB won't boot, remake it using Rufus (for Windows USBs) or Balena Etcher (for Linux USBs). Try a different USB port (rear ports on the motherboard often work best). If you get a black screen after install, check the graphics card connections and the Secure Boot setting. If the drive is not detected in BIOS, re-check cables and power. If you're unsure, stop and ask a helper.</p>
+                    <summary>Troubleshooting</summary>
+                    <p style="margin-top:0.5rem;">If USB won't boot, remake it with Rufus (Windows) or Balena Etcher (Linux). Try rear USB ports. If problems continue, re-check cables and Secure Boot, or ask a helper.</p>
                   </details>
 
                 </div>
